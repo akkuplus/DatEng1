@@ -8,41 +8,52 @@ time_table_drop = "DROP TABLE IF EXISTS time"
 
 # CREATE TABLES
 
-songplay_table_create = ("""CREATE TABLE songplays(songplay_id int, 
-                                                    start_time int, 
+songplay_table_create = ("""CREATE TABLE songplays(songplay_id serial, 
+                                                    start_time timestamp, 
                                                     user_id int, 
                                                     level varchar, 
                                                     song_id varchar, 
                                                     artist_id varchar, 
-                                                    session_id varchar, 
+                                                    session_id int, 
                                                     location varchar, 
-                                                    user_agent varchar)""")
+                                                    user_agent varchar,
+                                                    
+                                                    PRIMARY KEY(songplay_id)
+                                                  )""")
 
 user_table_create = ("""CREATE TABLE users(user_id int, 
                                             first_name varchar, 
                                             last_name varchar,
                                             gender varchar, 
-                                            level varchar)""")
+                                            level varchar,
+                                            
+                                            PRIMARY KEY(user_id) )""")
 
 song_table_create = ("""CREATE TABLE songs(song_id varchar, 
                                             title varchar, 
                                             artist_id varchar, 
                                             year int, 
-                                            duration float)""")
+                                            duration float,
+                                            
+                                            PRIMARY KEY(song_id))""")
 
 artist_table_create = ("""CREATE TABLE artists(artist_id varchar, 
                                                 name varchar, 
                                                 location varchar, 
                                                 latitude varchar, 
-                                                longitude varchar)""")
+                                                longitude varchar,
+                                                
+                                                PRIMARY KEY (artist_id) )""")
 
-time_table_create = ("""CREATE TABLE time(start_time int, 
+time_table_create = ("""CREATE TABLE times(start_time timestamp, 
                                             hour int, 
                                             day int, 
                                             week int, 
                                             month int, 
                                             year int, 
-                                            weekday int)""")
+                                            weekday int,
+                                            
+                                            PRIMARY KEY(start_time) )""")
 
 # INSERT RECORDS
 
