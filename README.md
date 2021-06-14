@@ -1,14 +1,14 @@
-#Data Modeling With PostGreSQL
+# Data Modeling With PostGreSQL
 
 ## Summary
 
-The project conducts ETL operations on JSON files and stores data in a Postgres database.   
-This README summarized the underlying the data modeling project to collect and transfer the data into a star-schema.
+The demo project conducts ETL operations on JSON files and stores data in a Postgres database.   
+This README summarized the underlying project to collect and transfer the data into a star-schema.
 
 ## Data
-The data sets consists of the subsets
+The data sets consists of two subsets of files:
 
-- Song dataset (`subdir data/song_data`), that contains of JSON files:  
+- Song dataset (in subdirectory `data/song_data`) contains files in JSON, like  
 
         {
         "num_songs": 1, 
@@ -23,7 +23,7 @@ The data sets consists of the subsets
         "year": 1984
         }
   
-- Log dataset (`subdir data/log_data`), that contains of JSON files:
+- Log dataset (in subdirectory `data/log_data`) contains files in JSON, like
   
         {
         "artist":"N.E.R.D. FEATURING MALICE",
@@ -121,7 +121,15 @@ month | int |
 year | int |
 weekday | int |
                                             
-                                            
+               
+## Star schema
+
+Fact table | Dimensional table
+---   | ---  
+songplays | artists
+. | songs
+. | times
+. | users
 
 
 ## Getting Started
