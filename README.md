@@ -46,15 +46,6 @@ The data sets consists of two subsets of files:
         "userId":"101" 
         }
 
-## Prerequisites
-
-The project requires a *Python* environment having the packages (see requirements.txt):  
-> pandas,  
-> pyscopg2,  
-> jupyterlab  
-
-and a *Postgres database* (database access: host=127.0.0.1, database_name=sparkifydb, user_login=student, user_password=student; this information is only provided for demo purposes).
-
 ## Data Model
 
 ### Table songplays  
@@ -62,12 +53,12 @@ and a *Postgres database* (database access: host=127.0.0.1, database_name=sparki
 Field | Type | Attribute
 ---   | ---  | ---
 songplay_id | serial | Primary key
-start_time | timestamp
-user_id | int
+start_time | timestamp | NOT NULL
+user_id | int | NOT NULL
 level | varchar 
 song_id | varchar 
 artist_id | varchar 
-session_id | int 
+session_id | int | NOT NULL
 location | varchar
 user_agent | varchar
 
@@ -78,11 +69,9 @@ Field | Type | Attribute
 ---   | ---  | --- 
 user_id | int | Primary key
 first_name | varchar
-last_name| varchar
-gender| varchar 
-level| varchar
-                                            
-
+last_name | varchar
+gender | varchar 
+level | varchar
 
 
 ### Table songs
@@ -90,10 +79,10 @@ level| varchar
 Field | Type | Attribute
 ---   | ---  | ---  
 song_id | varchar | Primary key
-title | varchar 
-artist_id | varchar 
+title | varchar | NOT NULL
+artist_id | varchar | NOT NULL
 year | int 
-duration | float
+duration | float | NOT NULL
                                             
 
 
@@ -102,7 +91,7 @@ duration | float
 Field | Type | Attribute
 ---   | ---  | ---
 artist_id | varchar | Primary key 
-name | varchar 
+name | varchar | NOT NULL
 location | varchar 
 latitude | varchar 
 longitude | varchar
@@ -114,12 +103,12 @@ longitude | varchar
 Field | Type | Attribute
 ---   | ---  | ---
 start_time | timestamp |  Primary key
-hour | int |  
-day | int |
-week | int |
-month | int |
-year | int |
-weekday | int |
+hour | int | NOT NULL
+day | int | NOT NULL
+week | int | NOT NULL
+month | int | NOT NULL
+year | int | NOT NULL
+weekday | int | NOT NULL
                                             
                
 ## Star schema
@@ -130,6 +119,16 @@ songplays | artists
 . | songs
 . | times
 . | users
+
+
+## Prerequisites
+
+The project requires a *Python* environment having the packages (see requirements.txt):  
+> pandas,  
+> pyscopg2,  
+> jupyterlab  
+
+and a *Postgres database* (database access: host=127.0.0.1, database_name=sparkifydb, user_login=student, user_password=student; this information is only provided for demo purposes).
 
 
 ## Getting Started
@@ -145,4 +144,4 @@ Second, execute the ETL operations and load the data into the databases:
 
 Finally, validate the imported data using the JUPYTER notebook  
     
-    `test.ipynb`.  
+    test.ipynb.  
