@@ -53,12 +53,12 @@ The data sets consists of two subsets of files:
 Field | Type | Attribute
 ---   | ---  | ---
 songplay_id | serial | Primary key
-start_time | timestamp | NOT NULL
-user_id | int | NOT NULL
+start_time | timestamp | Not null
+user_id | int | Not null
 level | varchar 
 song_id | varchar 
 artist_id | varchar 
-session_id | int | NOT NULL
+session_id | int | Not null
 location | varchar
 user_agent | varchar
 
@@ -79,10 +79,10 @@ level | varchar
 Field | Type | Attribute
 ---   | ---  | ---  
 song_id | varchar | Primary key
-title | varchar | NOT NULL
-artist_id | varchar | NOT NULL
+title | varchar | Not null
+artist_id | varchar | Not null
 year | int 
-duration | float | NOT NULL
+duration | float | Not null
                                             
 
 
@@ -91,7 +91,7 @@ duration | float | NOT NULL
 Field | Type | Attribute
 ---   | ---  | ---
 artist_id | varchar | Primary key 
-name | varchar | NOT NULL
+name | varchar | Not null
 location | varchar 
 latitude | varchar 
 longitude | varchar
@@ -103,12 +103,12 @@ longitude | varchar
 Field | Type | Attribute
 ---   | ---  | ---
 start_time | timestamp |  Primary key
-hour | int | NOT NULL
-day | int | NOT NULL
-week | int | NOT NULL
-month | int | NOT NULL
-year | int | NOT NULL
-weekday | int | NOT NULL
+hour | int | Not null
+day | int | Not null
+week | int | Not null
+month | int | Not null
+year | int | Not null
+weekday | int | Not null
                                             
                
 ## Star schema
@@ -138,7 +138,6 @@ First, connect to the DBMS and create the Sparkify databases:
     python create_tables.py  
 
 Second, execute the ETL operations and load the data into the databases:  
-    To load data into the Sparkify database run the following command:
 
     python etl.py
 
